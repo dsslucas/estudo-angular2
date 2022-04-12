@@ -5,7 +5,7 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
   selector: 'app-root', //Nome
   template: `
     <app-title *ngIf="destruir"></app-title>
-    {{valor}}
+    <p *ngIf="destruir">{{valor}}</p>
     <button (click)="adicionar()" *ngIf="destruir">Adicionar</button>
     <br>
     <app-title *ngIf="destruir"></app-title>
