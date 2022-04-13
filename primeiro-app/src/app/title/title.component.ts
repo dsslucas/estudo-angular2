@@ -21,11 +21,11 @@ export class TitleComponent implements OnInit, OnChanges, OnDestroy {
 
   //Evento que atualiza a cada update
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("Tive uma alteração")
+    //console.log("Tive uma alteração")
   }
 
   ngOnDestroy(): void {
-    console.log("Componente destruído!")
+    //console.log("Componente destruído!")
   }
 
 }

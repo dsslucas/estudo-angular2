@@ -1,0 +1,29 @@
+<h2>Diretivas Estruturais</h2>
+
+<h4>If</h4>
+
+<p *ngIf="condition; else elseBlock">True</p>
+<ng-template #elseBlock>
+    <p>False</p>
+</ng-template>
+
+<p *ngIf="conditionClick">True</p>
+<p *ngIf="!conditionClick">False</p>
+<button (click)="onClick()">Clicar</button>
+
+<br>
+
+<h4>For</h4>
+<ul>
+    <li *ngFor="let item of list">{{item.nome}}, {{item.idade}} anos</li>
+</ul>
+<button (click)="onClickAddList()">Add</button>
+
+<br>
+<h4>Switch Case</h4>
+<input type="text" [(ngModel)]="nome">
+<div [ngSwitch]="nome">
+    <p *ngSwitchCase="'Lucas'">Lucas</p>
+    <p *ngSwitchCase="'Debora'">Debora</p>
+    <p *ngSwitchDefault>Não foi encontrado o nome.</p>
+</div>
