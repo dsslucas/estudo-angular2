@@ -4,11 +4,7 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
 @Component({
   selector: 'app-root', //Nome
   template: `
-
-    <app-diretivas-atributos>
-      <h2>Aulas de Diretrizes de Atributos</h2>
-      <hr>
-    </app-diretivas-atributos>
+    <app-new-component></app-new-component>
     <router-outlet></router-outlet>
   ` //Template geral
 
@@ -23,6 +19,11 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
     <br>
     <app-data-binding></app-data-binding>
     <app-diretivas-estruturais></app-diretivas-estruturais>
+
+        <app-diretivas-atributos>
+      <h2>Aulas de Diretrizes de Atributos</h2>
+      <hr>
+    </app-diretivas-atributos>
   */
 })
 
