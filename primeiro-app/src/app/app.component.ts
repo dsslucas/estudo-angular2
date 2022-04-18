@@ -6,6 +6,17 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
   template: `
     <app-new-component></app-new-component>
     <router-outlet></router-outlet>
+    <app-input [contador]="addValue"></app-input>
+    <button (click)="remove()">Remove</button> <button (click)="add()">Add</button>
+
+    <br>
+    <ng-template [ngIf]="getDados">
+      <h6>{{getDados.nome}}</h6>
+      <p>{{getDados.idade}}</p>
+    </ng-template>
+
+    <app-output (enviarDados)="setDados($event)"></app-output>
+
   ` //Template geral
 
   //PARA FUNCIONAR O RESTANTE, BASTA COPIAR
@@ -69,5 +80,27 @@ export class AppComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
 
   ngAfterViewChecked(): void {
     //console.log("ngAfterViewChecked")
+  }
+
+  //Para o Input
+  //Onde inicia o contador
+  public addValue: number = 0
+
+  //Função de adicionar
+  public add(){
+    this.addValue += 1
+  }
+
+  //Remover
+  public remove(){
+    this.addValue -= 1
+  }
+
+  //Para o Output
+  public getDados: {nome: string, idade: number} | undefined;
+
+  //Seta os dados no GET. Tipo ANY pega tudo
+  public setDados(event: any){
+    this.getDados = event
   }
 }
