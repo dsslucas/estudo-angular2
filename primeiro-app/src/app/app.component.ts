@@ -4,18 +4,10 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
 @Component({
   selector: 'app-root', //Nome
   template: `
-    <app-new-component></app-new-component>
-    <router-outlet></router-outlet>
-    <app-input [contador]="addValue"></app-input>
-    <button (click)="remove()">Remove</button> <button (click)="add()">Add</button>
+    
 
-    <br>
-    <ng-template [ngIf]="getDados">
-      <h6>{{getDados.nome}}</h6>
-      <p>{{getDados.idade}}</p>
-    </ng-template>
+    <app-food-list></app-food-list>
 
-    <app-output (enviarDados)="setDados($event)"></app-output>
 
   ` //Template geral
 
@@ -35,6 +27,18 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
       <h2>Aulas de Diretrizes de Atributos</h2>
       <hr>
     </app-diretivas-atributos>
+
+    <app-new-component></app-new-component>
+    <router-outlet></router-outlet>
+    <app-input [contador]="addValue"></app-input>
+    <button (click)="remove()">Remove</button> <button (click)="add()">Add</button>
+
+    <br>
+    <ng-template [ngIf]="getDados">
+      <h6>{{getDados.nome}}</h6>
+      <p>{{getDados.idade}}</p>
+    </ng-template>
+        <app-output (enviarDados)="setDados($event)"></app-output>
   */
 })
 
