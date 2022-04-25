@@ -18,4 +18,10 @@ export class FoodListService {
   public foodList(){
     return this.list
   }
+
+  //Adiciona um valor pro Food List
+  public foodListAdd(value: string){
+    //Adiciona na lista privada
+    return this.list.push(value)
+  }
 }

@@ -4,7 +4,7 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
 @Component({
   selector: 'app-root', //Nome
   template: `
-    
+    <app-food-add></app-food-add>
 
     <app-food-list></app-food-list>
 
