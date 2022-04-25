@@ -8,6 +8,9 @@ import { OutputComponent } from './output/output.component';
 import { FoodListComponent } from './food-list/food-list.component';
 import { FoodAddComponent } from './food-add/food-add.component';
 
+import { HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
+
 
 //Decorator, com toda a inicialização do módulo
 @NgModule({
@@ -19,7 +22,9 @@ import { FoodAddComponent } from './food-add/food-add.component';
     FoodAddComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule, //Necessário pro NG Model
+    HttpClientModule //Poderes do HTTP para GET e etc
   ],
 
   //Necessário para o App Component (principal)

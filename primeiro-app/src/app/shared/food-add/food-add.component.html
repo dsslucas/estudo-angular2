@@ -1,2 +1,2 @@
-<input #inputValue>
+<input #inputValue (keyup.enter)="listAddItem(inputValue.value)">
 <button (click)="listAddItem(inputValue.value)">Add Item</button>
