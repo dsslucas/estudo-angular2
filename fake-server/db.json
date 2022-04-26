@@ -1,16 +1,3 @@
 {
-  "list-food": [
-    {
-      "nome": "scania 113",
-      "id": 1
-    },
-    {
-      "nome": "mercedao 8x4 1 eixo",
-      "id": 3
-    },
-    {
-      "nome": "ai meu faminhao",
-      "id": 5
-    }
-  ]
+  "list-food": []
 }

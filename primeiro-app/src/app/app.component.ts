@@ -4,9 +4,9 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
 @Component({
   selector: 'app-root', //Nome
   template: `
-    <app-food-add></app-food-add>
 
-    <app-food-list></app-food-list>
+
+    <app-forms></app-forms>
 
 
   ` //Template geral
@@ -39,6 +39,10 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
       <p>{{getDados.idade}}</p>
     </ng-template>
         <app-output (enviarDados)="setDados($event)"></app-output>
+
+            <app-food-add></app-food-add>
+
+    <app-food-list></app-food-list>
   */
 })
 
