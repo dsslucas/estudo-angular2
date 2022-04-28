@@ -1,0 +1,33 @@
+<form [formGroup]="cadastroForm" (ngSubmit)="submitForm()">
+
+    <label>
+        Nome:
+        <input type="text" formControlName="firstName">
+        <span *ngIf="cadastroForm.get('firstName')?.errors && cadastroForm.get('firstName')?.touched && cadastroForm.get('firstName')?.dirty">Adicione um nome</span>
+    </label>
+
+    <br>
+
+    <label>
+        Sobrenome:
+        <input type="text" formControlName="lastName">
+
+    </label>
+
+
+    <br><br>
+    <!-- "?" se existir beleza, se não, não faça nada-->
+    <p>Primeiro nome</p>
+    {{cadastroForm.get('firstName')?.errors | json}}
+    {{cadastroForm.get('firstName')?.touched | json}}
+    {{cadastroForm.get('firstName')?.dirty | json}}
+
+    <br><br>
+    <p>Segundo nome</p>
+    {{cadastroForm.get('lastName')?.errors | json}}
+
+    <br>
+
+    <!-- Só desbloqueia o botão se o formulário estiver válido -->
+    <button [disabled]="cadastroForm.invalid">Enviar</button>
+</form>
