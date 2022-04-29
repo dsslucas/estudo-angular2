@@ -1,0 +1,6 @@
+//Converte tudo (inclusive PX) para REM
+
+@function rem-calc($size) {
+	$value: $size / 16;
+	@return #{$value}rem;
+}
