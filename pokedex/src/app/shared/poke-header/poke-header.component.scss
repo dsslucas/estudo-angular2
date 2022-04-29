@@ -1,0 +1,12 @@
+@import '../../../config-scss/rem-calc.scss';
+
+//Só tá mexendo os componentes da tag, não mexendo nas demais
+:host {
+	header {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		padding: rem-calc(40) 0;
+	}
+}
