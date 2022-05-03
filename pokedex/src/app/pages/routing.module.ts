@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 //Vem do Lazy Loading. AQUI É FILHO@
 const routes: Routes = [
   {path: '', component: HomeComponent}, //Página principal
-  {path: 'details', component: DetailsComponent} // Detalhes
+  {path: 'details/:id', component: DetailsComponent} // Detalhes
 ];
 
 @NgModule({

@@ -34,6 +34,9 @@ $padding: rem-calc(20);
         //Altura do layout
         height: rem-calc(157 - 40);
 
+        text-decoration: none;
+        color: var(--primary-color);
+
         //pega o pokemon__status
         &__status {
             h2 {

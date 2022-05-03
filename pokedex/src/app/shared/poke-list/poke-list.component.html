@@ -1,7 +1,7 @@
 <ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">
 
     <!-- Pergunta se tem. Caso tenha status, renderiza tudo.-->
-    <a href="" class="pokemon" *ngIf="pokemon.status">
+    <a href="" class="pokemon" *ngIf="pokemon.status" [routerLink]="['details', pokemon.status.id]">
         <section class="pokemon__status">
             <h2>{{pokemon.name}}</h2>
             <ul>
