@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 //Módulo
 import { PagesModule } from './pages/pages.module';
 
+import {HttpClientModule} from '@angular/common/http'
+
 //Componentes
 
 @NgModule({
@@ -16,7 +18,8 @@ import { PagesModule } from './pages/pages.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PagesModule
+    PagesModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

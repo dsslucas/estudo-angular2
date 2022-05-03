@@ -8,7 +8,9 @@ $padding: rem-calc(20);
     //Para listagem de 2 itens por cada linha
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    //@debug: 10px;
+
+    padding: $padding 0; //Cima e baixo
 
     .pokemon {
         display: flex;
