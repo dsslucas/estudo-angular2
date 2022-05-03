@@ -18,16 +18,23 @@ export class PokeApiService {
     private http: HttpClient
   ) { }
 
-  //Pega os dados da API (HTTP GET). Essa função é específica do TypeScript
+  //Pega os dados da API (HTTP GET). Essa função é específica do TypeScript. MÉTODO!!!
   //Observable observa o que está ocorrendo com o HTTP Client. Sempre precisa ter Return
   get apiListAllPokemons(): Observable<any> {
 
     //Pega tudo da API. Pipe é filtro!
     return this.http.get<any>(this.url).pipe(
+
+      //Retorna um objeto
       tap(res => res),
+
+      //Dentro do objeto, pega todos os outros objetos
       tap(res => {
+        //Fica um array, onde recebe os pokemons. A partir disso, mapeia
         res.results.map((resPokemons: any) => {
 
+          //Cada vez que passa pelo nó de um array, faz uma chamada que recebe a URL.
+          //Faz mais um get, dessa vez para pegar os status de cada pokemon
           this.apiGetPokemons(resPokemons.url).subscribe(
             res => resPokemons.status = res
           )
