@@ -13,6 +13,7 @@ export class PokeListComponent implements OnInit {
   ) { }
 
   public getAllPokemons: any;
+  private setAllPokemons: any;
 
   ngOnInit(): void {
     //Precisa instanciar (carrega aí pra mim?)
@@ -20,10 +21,23 @@ export class PokeListComponent implements OnInit {
       res => {
         
         //Vai receber apenas os resultados da API
-        this.getAllPokemons = res.results
-        console.log(this.getAllPokemons)
+        this.setAllPokemons = res.results
+        //console.log(this.getAllPokemons)
+
+        this.getAllPokemons = this.setAllPokemons
       }
     )
   }
+
+  //Resgata o valor do output na barra de pesquisa
+  public getSearch(value: string){
+    //Filtra os pokemons
+    const filter = this.setAllPokemons.filter( (res: any) => {
+      //Index Of pega os primeiros resultados informados
+      return !res.name.indexOf(value.toLowerCase())
+    });
+
+    this.getAllPokemons = filter;
+  } 
 
 }
