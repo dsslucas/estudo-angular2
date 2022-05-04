@@ -23,6 +23,10 @@ export class DetailsComponent implements OnInit {
   //Mostra o pokemon na página
   public pokemon: any
 
+  //Previne erros
+  public isLoading: boolean = false
+  public apiError: boolean = false
+
   //Quando iniciar
   ngOnInit(): void {
     this.getPokemon;
@@ -45,6 +49,11 @@ export class DetailsComponent implements OnInit {
     return forkJoin([pokemon, name]).subscribe(
       res => {
         this.pokemon = res
+        this.isLoading = true
+      },
+      error => {
+        this.isLoading = false
+        this.apiError = true
       }
     )
   }
