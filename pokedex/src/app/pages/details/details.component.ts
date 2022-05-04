@@ -33,7 +33,7 @@ export class DetailsComponent implements OnInit {
   }
 
   //Pega os detalhes. Coisa do TypeScript
-  get getPokemon() {
+  public getPokemon() {
     //Pega o ID do Pokemon passado
     const id = this.activatedRoute.snapshot.params['id']
 
