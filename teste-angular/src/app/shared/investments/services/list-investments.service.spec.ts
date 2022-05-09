@@ -9,6 +9,7 @@ import {
 
 import { HttpClient } from '@angular/common/http';
 import { Investments } from '../model/investments';
+import { MOCK_LIST } from './list-investments.mock';
 
 describe('ListInvestmentsService', () => {
   let service: ListInvestmentsService;
@@ -21,13 +22,7 @@ describe('ListInvestmentsService', () => {
   const url = 'https://raw.githubusercontent.com/troquatte/fake-server/main/investiments-all.json'
 
   //Array para mock
-  const mockList: Array<Investments> = [
-    { name: 'Banco 1', value: 100 },
-    { name: 'Banco 2', value: 100 },
-    { name: 'Banco 3', value: 100 },
-    { name: 'Banco 4', value: 100 },
-    { name: 'Banco 5', value: 100 },
-  ]
+  const mockList:  Array<Investments> = MOCK_LIST
 
   //Mesma coisa do NG On Init
   beforeEach(() => {
@@ -50,6 +45,27 @@ describe('ListInvestmentsService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+
+  it("(Unitário) Should be list all investments", (done) => {
+    service.list().subscribe(
+      (res: Array<Investments>) => {
+        expect(res[0].name).toEqual('Banco 1')
+        expect(res[4].name).toEqual('Banco 5')
+        done() //Trava o Subscribe. Se recebeu os dados, ele faz parar!
+      }
+    )
+    
+    //done() //Se chegamos aqui, encerramos o teste unitário
+
+    //Espera que a URL seja igual
+    const req = httpTestingController.expectOne(url)
+
+    //O retorno tem que ser a Mock List. O que vem da URL tem que ser trocado pelo o que foi estabelecido.
+    req.flush(mockList)
+
+    expect(req.request.method).toEqual('GET')
+  })
 
 
 });
