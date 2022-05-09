@@ -1,5 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+//É importante colocar modelos e interfaces para testes, para que não haja avisos
+import { ListComponent } from '../investments/components/list/list.component';
+
 import { BankingComponent } from './banking.component';
 
 describe('BankingComponent', () => {
@@ -8,7 +11,7 @@ describe('BankingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [BankingComponent]
+      declarations: [BankingComponent, ListComponent]
     })
       .compileComponents();
   });
@@ -47,7 +50,6 @@ describe('BankingComponent', () => {
     expect(component.getCarteira).toEqual(50)
 
   })
-
 
   it('(Unitário) setDepositar: should transfer carteira from poupanca', () => {
     component.setDeposito('50')
@@ -101,3 +103,5 @@ describe('BankingComponent', () => {
   })
 
 });
+
+
