@@ -5,13 +5,19 @@ import { ListComponent } from '../investments/components/list/list.component';
 
 import { BankingComponent } from './banking.component';
 
+import {
+  HttpClientTestingModule, //Ajuda no mock, parte de http
+  HttpTestingController // pega coisas do controlador, coisas específicas
+} from '@angular/common/http/testing'
+
 describe('BankingComponent', () => {
   let component: BankingComponent;
   let fixture: ComponentFixture<BankingComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [BankingComponent, ListComponent]
+      declarations: [BankingComponent, ListComponent],
+      imports: [HttpClientTestingModule]
     })
       .compileComponents();
   });

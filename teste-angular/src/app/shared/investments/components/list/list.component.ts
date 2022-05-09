@@ -18,13 +18,15 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     //Chama a função GET
     this.listInvestmentsService.list().subscribe(
-      res => console.log(res)
+      res => this.investments = res
     )
   }
 
   //Popular a lista, vinda de uma interface
-  public investments: Array<Investments> = [
-    {
+  public investments!: Array<Investments>
+  /*
+
+  public investments!: Array<Investments> = [    {
       name: "Itaú",
       value: 400
     },
@@ -41,5 +43,5 @@ export class ListComponent implements OnInit {
       value: 400
     },
   ]
-
+  */
 }

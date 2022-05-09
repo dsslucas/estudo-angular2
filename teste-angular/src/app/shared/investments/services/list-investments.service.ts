@@ -15,9 +15,9 @@ export class ListInvestmentsService {
 
   private url: string = 'https://raw.githubusercontent.com/troquatte/fake-server/main/investiments-all.json'
 
-    public list(): Observable<Investments>{
+    public list(): Observable<Array<Investments>>{
       //Está sendo tipado pelo Observable e pelo Get
-      return this.http.get<Investments>(this.url).pipe( 
+      return this.http.get<Array<Investments>>(this.url).pipe( 
         map(
           res => res
         )
