@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { ThisReceiver } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable, map, catchError, throwError } from 'rxjs';
 
 @Injectable({
@@ -49,5 +50,21 @@ export class AuthService {
 
     //Volta para a página principal
     return this.router.navigate([''])
+  }
+
+  //Verifica se está logado, para que as rotas trabalhem
+  public isAuthenticated() {
+    const token = localStorage.getItem("access_token")
+
+    //O token existe? Caso a resposta seja não, no Auth Guard retorna falso
+    if(!token) return false
+
+    //Vale lembrar que é necessário adicionar um CanActivateChild no Routing principal
+
+    //Serviço junto ao JWT, baixado via NPM
+    const jwtHelper = new JwtHelperService()
+
+    //Se a condição não tiver token expirado, retorna true para o Auth Guard
+    return !jwtHelper.isTokenExpired(token)
   }
 }
