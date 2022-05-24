@@ -11,6 +11,8 @@
   
     &:disabled {
       cursor: no-drop;
+
+      //Função do SASS que escurece
       background: darken($vermelho, 20%);
     }
   }
